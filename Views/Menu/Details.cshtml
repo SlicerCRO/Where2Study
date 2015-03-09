@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Where2Study.Models.University>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2> @Html.DisplayNameFor(model => model.Title)</h2>
+
+<fieldset>
+    @foreach (var item in Model) {
+    <legend>@Html.DisplayFor(modelItem => item.Title)</legend>
+    
+    @* <div class="display-label">id_fakultet</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.id_fakultet)
+    </div>
+
+    <div class="display-label">id_jezik</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.id_jezik)
+    </div> *@
+
+    <div class="display-label">@Html.DisplayFor(modelItem => item.Description)</div>
+    <div class="display-field">
+        @Html.DisplayFor(modelItem => item.Photo) <br />
+        @Html.DisplayNameFor(model => model.Address):
+        @Html.DisplayFor(modelItem => item.Address)<br />
+        @Html.DisplayNameFor(model => model.Phone):
+        @Html.DisplayFor(modelItem => item.Phone)<br />
+        @Html.DisplayNameFor(model => model.WebSite):
+        @Html.DisplayFor(modelItem => item.WebSite)<br />
+        @Html.DisplayNameFor(model => model.City):
+        @Html.DisplayFor(modelItem => item.City)<br />
+        @Html.DisplayNameFor(model => model.Country):
+        @Html.DisplayFor(modelItem => item.Country)<br />
+        @*@Html.DisplayNameFor(model => model.Continent):
+        @Html.DisplayFor(modelItem => item.Continent)<br />*@
+    </div>
+    }
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

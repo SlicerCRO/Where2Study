@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Where2Study.Models.kontinent_tekst>
+
+@{
+    ViewBag.Title = "Menu";
+}
+
+<h3>@Resources.Resources.BrowseContinents</h3>
+
+@if(@Model.Count()!=0){
+<p>
+    @Resources.Resources.SelectFrom @Model.Count() @Resources.Resources.continents:
+</p>}
+    
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@Html.ActionLink(item.tekst, "Countries", new {continent=item.tekst})</li>
+    }
+</ul>

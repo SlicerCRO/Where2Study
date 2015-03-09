@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Where2Study.Models.drzava_tekst>
+
+@{
+    ViewBag.Title = "Countries";
+}
+
+<h3>@Resources.Resources.BrowseCountries</h3>
+
+<p>
+    Select from @Model.Count() countries:
+</p>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@Html.ActionLink(item.tekst, "Cities", new {country=item.tekst})</li>
+    }
+</ul>

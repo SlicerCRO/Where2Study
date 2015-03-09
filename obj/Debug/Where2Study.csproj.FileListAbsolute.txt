@@ -1,0 +1,216 @@
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\obj\Debug\Where2Study.csprojResolveAssemblyReference.cache
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\Where2Study.dll
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\Where2Study.pdb
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\EntityFramework.dll
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\Microsoft.Web.Infrastructure.dll
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\System.Web.Helpers.dll
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\System.Web.Mvc.dll
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\System.Web.Providers.dll
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\System.Web.Razor.dll
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\System.Web.WebPages.Deployment.dll
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\System.Web.WebPages.dll
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\System.Web.WebPages.Razor.dll
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\EntityFramework.xml
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\System.Web.Helpers.xml
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\System.Web.Mvc.xml
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\System.Web.Razor.xml
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\System.Web.WebPages.xml
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\System.Web.WebPages.Deployment.xml
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\System.Web.WebPages.Razor.xml
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\obj\Debug\Where2Study.dll
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\obj\Debug\Where2Study.pdb
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\Resources.dll
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\Resources.pdb
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\hr\Resources.resources.dll
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\Antlr3.Runtime.dll
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\DotNetOpenAuth.AspNet.dll
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\DotNetOpenAuth.Core.dll
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\DotNetOpenAuth.OAuth.dll
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\DotNetOpenAuth.OpenId.dll
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\System.Web.Optimization.dll
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\WebGrease.dll
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\WebMatrix.Data.dll
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\WebMatrix.WebData.dll
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\Org.Mentalis.Security.Cryptography.dll
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\Mono.Math.dll
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\DotNetOpenAuth.AspNet.xml
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\DotNetOpenAuth.Core.xml
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\DotNetOpenAuth.OAuth.xml
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\DotNetOpenAuth.OpenId.xml
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\WebMatrix.Data.xml
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\WebMatrix.WebData.xml
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\Org.Mentalis.Security.Cryptography.xml
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\Mono.Math.xml
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\EntityFramework.SqlServer.dll
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\MySql.Data.dll
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\MySql.Data.Entity.EF6.dll
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\MySql.Web.dll
+D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Where2Study\bin\EntityFramework.SqlServer.xml
+D:\Maja\Start up\Where2Study\Where2Study\bin\Where2Study.dll
+D:\Maja\Start up\Where2Study\Where2Study\bin\Where2Study.pdb
+D:\Maja\Start up\Where2Study\Where2Study\bin\Antlr3.Runtime.dll
+D:\Maja\Start up\Where2Study\Where2Study\bin\DotNetOpenAuth.AspNet.dll
+D:\Maja\Start up\Where2Study\Where2Study\bin\DotNetOpenAuth.Core.dll
+D:\Maja\Start up\Where2Study\Where2Study\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\Maja\Start up\Where2Study\Where2Study\bin\DotNetOpenAuth.OAuth.dll
+D:\Maja\Start up\Where2Study\Where2Study\bin\DotNetOpenAuth.OpenId.dll
+D:\Maja\Start up\Where2Study\Where2Study\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\Maja\Start up\Where2Study\Where2Study\bin\EntityFramework.dll
+D:\Maja\Start up\Where2Study\Where2Study\bin\EntityFramework.SqlServer.dll
+D:\Maja\Start up\Where2Study\Where2Study\bin\Microsoft.Web.Infrastructure.dll
+D:\Maja\Start up\Where2Study\Where2Study\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\Maja\Start up\Where2Study\Where2Study\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\Maja\Start up\Where2Study\Where2Study\bin\MySql.Data.dll
+D:\Maja\Start up\Where2Study\Where2Study\bin\MySql.Data.Entity.EF6.dll
+D:\Maja\Start up\Where2Study\Where2Study\bin\MySql.Web.dll
+D:\Maja\Start up\Where2Study\Where2Study\bin\Resources.dll
+D:\Maja\Start up\Where2Study\Where2Study\bin\System.Web.Helpers.dll
+D:\Maja\Start up\Where2Study\Where2Study\bin\System.Web.Optimization.dll
+D:\Maja\Start up\Where2Study\Where2Study\bin\System.Web.Providers.dll
+D:\Maja\Start up\Where2Study\Where2Study\bin\System.Web.Razor.dll
+D:\Maja\Start up\Where2Study\Where2Study\bin\System.Web.WebPages.Deployment.dll
+D:\Maja\Start up\Where2Study\Where2Study\bin\System.Web.WebPages.dll
+D:\Maja\Start up\Where2Study\Where2Study\bin\System.Web.WebPages.Razor.dll
+D:\Maja\Start up\Where2Study\Where2Study\bin\WebGrease.dll
+D:\Maja\Start up\Where2Study\Where2Study\bin\WebMatrix.Data.dll
+D:\Maja\Start up\Where2Study\Where2Study\bin\WebMatrix.WebData.dll
+D:\Maja\Start up\Where2Study\Where2Study\bin\Org.Mentalis.Security.Cryptography.dll
+D:\Maja\Start up\Where2Study\Where2Study\bin\Mono.Math.dll
+D:\Maja\Start up\Where2Study\Where2Study\bin\Resources.pdb
+D:\Maja\Start up\Where2Study\Where2Study\bin\DotNetOpenAuth.AspNet.xml
+D:\Maja\Start up\Where2Study\Where2Study\bin\DotNetOpenAuth.Core.xml
+D:\Maja\Start up\Where2Study\Where2Study\bin\DotNetOpenAuth.OAuth.xml
+D:\Maja\Start up\Where2Study\Where2Study\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\Maja\Start up\Where2Study\Where2Study\bin\DotNetOpenAuth.OpenId.xml
+D:\Maja\Start up\Where2Study\Where2Study\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\Maja\Start up\Where2Study\Where2Study\bin\EntityFramework.xml
+D:\Maja\Start up\Where2Study\Where2Study\bin\EntityFramework.SqlServer.xml
+D:\Maja\Start up\Where2Study\Where2Study\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\Maja\Start up\Where2Study\Where2Study\bin\System.Web.Helpers.xml
+D:\Maja\Start up\Where2Study\Where2Study\bin\System.Web.Razor.xml
+D:\Maja\Start up\Where2Study\Where2Study\bin\System.Web.WebPages.xml
+D:\Maja\Start up\Where2Study\Where2Study\bin\System.Web.WebPages.Deployment.xml
+D:\Maja\Start up\Where2Study\Where2Study\bin\System.Web.WebPages.Razor.xml
+D:\Maja\Start up\Where2Study\Where2Study\bin\WebMatrix.Data.xml
+D:\Maja\Start up\Where2Study\Where2Study\bin\WebMatrix.WebData.xml
+D:\Maja\Start up\Where2Study\Where2Study\bin\Org.Mentalis.Security.Cryptography.xml
+D:\Maja\Start up\Where2Study\Where2Study\bin\Mono.Math.xml
+D:\Maja\Start up\Where2Study\Where2Study\bin\hr\Resources.resources.dll
+D:\Maja\Start up\Where2Study\Where2Study\obj\Debug\Where2Study.csprojResolveAssemblyReference.cache
+D:\Maja\Start up\Where2Study\Where2Study\obj\Debug\Where2Study.dll
+D:\Maja\Start up\Where2Study\Where2Study\obj\Debug\Where2Study.pdb
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\Where2Study.dll.config
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\Where2Study.dll
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\Where2Study.pdb
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\Antlr3.Runtime.dll
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\DotNetOpenAuth.Core.dll
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\EntityFramework.dll
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\EntityFramework.SqlServer.dll
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\MySql.Data.dll
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\MySql.Data.Entity.EF6.dll
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\MySql.Web.dll
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\Resources.dll
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\System.Web.Helpers.dll
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\System.Web.Optimization.dll
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\System.Web.Providers.dll
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\System.Web.Razor.dll
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\System.Web.WebPages.dll
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\System.Web.WebPages.Razor.dll
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\WebGrease.dll
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\WebMatrix.Data.dll
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\WebMatrix.WebData.dll
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\Org.Mentalis.Security.Cryptography.dll
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\Mono.Math.dll
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\Resources.pdb
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\DotNetOpenAuth.Core.xml
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\EntityFramework.xml
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\EntityFramework.SqlServer.xml
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\System.Web.Helpers.xml
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\System.Web.Razor.xml
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\System.Web.WebPages.xml
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\System.Web.WebPages.Razor.xml
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\WebMatrix.Data.xml
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\WebMatrix.WebData.xml
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\Org.Mentalis.Security.Cryptography.xml
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\Mono.Math.xml
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\bin\hr\Resources.resources.dll
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\obj\Debug\Where2Study.csprojResolveAssemblyReference.cache
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\obj\Debug\Where2Study.dll
+C:\Users\Luka\Downloads\Where2Studyv2\Where2Study\Where2Study\obj\Debug\Where2Study.pdb
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\Where2Study.dll.config
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\Where2Study.dll
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\Where2Study.pdb
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\Antlr3.Runtime.dll
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\DotNetOpenAuth.Core.dll
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\EntityFramework.dll
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\EntityFramework.SqlServer.dll
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\MySql.Data.dll
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\MySql.Data.Entity.EF6.dll
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\MySql.Web.dll
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\Resources.dll
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\System.Web.Helpers.dll
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\System.Web.Optimization.dll
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\System.Web.Providers.dll
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\System.Web.Razor.dll
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\System.Web.WebPages.dll
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\System.Web.WebPages.Razor.dll
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\WebGrease.dll
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\WebMatrix.Data.dll
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\WebMatrix.WebData.dll
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\Org.Mentalis.Security.Cryptography.dll
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\Mono.Math.dll
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\Resources.pdb
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\DotNetOpenAuth.Core.xml
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\EntityFramework.xml
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\EntityFramework.SqlServer.xml
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\System.Web.Helpers.xml
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\System.Web.Razor.xml
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\System.Web.WebPages.xml
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\System.Web.WebPages.Razor.xml
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\WebMatrix.Data.xml
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\WebMatrix.WebData.xml
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\Org.Mentalis.Security.Cryptography.xml
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\Mono.Math.xml
+C:\Users\Luka\Desktop\Where2Study\Where2Study\bin\hr\Resources.resources.dll
+C:\Users\Luka\Desktop\Where2Study\Where2Study\obj\Debug\Where2Study.csprojResolveAssemblyReference.cache
+C:\Users\Luka\Desktop\Where2Study\Where2Study\obj\Debug\Where2Study.dll
+C:\Users\Luka\Desktop\Where2Study\Where2Study\obj\Debug\Where2Study.pdb

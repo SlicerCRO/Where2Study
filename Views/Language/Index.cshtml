@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Where2Study.Models.jezik>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Choose language</h2>
+ <p>
+    Select from @Model.Count() languages:
+</p>
+<ul>
+    @foreach (var jezik in Model)
+    {
+        <li>@Html.ActionLink(jezik.ime_jezika, "", "home")</li>
+
+    }
+</ul>
