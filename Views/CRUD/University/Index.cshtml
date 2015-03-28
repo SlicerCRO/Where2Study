@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Where2Study.Models.sveuciliste>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_grad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.adresa_sveucilista)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.broj_telefona)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.web)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_grad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.adresa_sveucilista)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.broj_telefona)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.web)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

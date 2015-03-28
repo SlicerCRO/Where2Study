@@ -1,19 +1,30 @@
-﻿@model IEnumerable<Where2Study.Models.kontinent_tekst>
+﻿@model IEnumerable<Where2Study.Models.Faculty>
 
 @{
     ViewBag.Title = "Index";
     var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
 }
 
-<h2>@Resources.Resources.Instructions</h2>
 
-<div class="row">
-    <div class="col-md-6">
-        <div>
-            <h5>Rad s podatcima</h5>
-            Pregled, unos, izmjena i brisanje podataka (<a href="/Country">Države</a>, <a href="/City">Gradovi</a>, <a href="/University">Fakulteti</a>)
+<!--<h2>@Resources.Resources.Instructions</h2>-->
+ <div class="container">
+        <div id="header" class="row">
+            <div class="col-lg-3 hidden-sm hidden-xs">
+                <img id="logo" src="/content/Images/w2s_logo.png">
+            </div>
+            <div class="col-lg-8 header-part">
+                <h2>@Resources.Resources.Welcome</h2>
+                <h4>@Resources.Resources.Instructions</h4> 
+            </div>
         </div>
+    </div>
 
+    <div class="col-md-6">
+        @*<div>
+            <h5><b><a href="/CRUD">Rad s podatcima </a></b>-
+            Pregled, unos, izmjena i brisanje podataka u tablicama</h5>
+        </div>*@
+        <br /><br /><br /><br /><br /><br /><br />
 
         <!-- JAVASCRIPT to clear search text when the field is clicked -->
         <script type="text/javascript">
@@ -23,7 +34,7 @@
                 //Add listener to submit button
                 if (submitbutton.addEventListener) {
                     submitbutton.addEventListener("click", function () {
-                        if (submitbutton.value == Resources.Resources.Search) {//Customize this text string to whatever you want
+                        if (submitbutton.value == "@Resources.Resources.Search") {//Customize this text string to whatever you want
                             submitbutton.value = '';
                         }
                     });
@@ -38,7 +49,26 @@
         </div>
     </div>
 
+<div class="container" style="margin-bottom:100px;min-height:500px;">
     <div class="col-md-6">
-        Pretraži po kontinentima ili unesi naziv fakulteta ili studija u search box...
+        <div id="carousel1" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                @{
+                    var i = 0;
+                    foreach (var item in Model)
+                    {
+                        var itemClass = i++ == 0 ? "item active" : "item";
+                        <div class="@itemClass">
+                            <h4 class="text-center">@item.Title</h4>
+                            <img class="center-block" src="/content/Images/Slike/@item.Photo" alt="@item.Title" style="width:400px;">
+                        </div>
+                    }
+                }
+            </div>
+        </div>
     </div>
-</div>
+</div>   
+
+<script>$('.carousel').carousel({
+    interval: 4000
+})</script>

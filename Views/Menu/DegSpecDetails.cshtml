@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Where2Study.Models.DegreeSpecialization>
+
+@{
+    ViewBag.Title = "DegSpecDetails";
+}
+
+<div class="col-md-6">
+    </div>
+
+<div class="col-md-6">
+
+<br /><br /><br /><br /><br />
+<h2>Smjerovi</h2>
+
+    <h4>Stručni:</h4>
+@foreach (var item in Model) {
+        if (item.Id == 1){<div>- @Html.DisplayFor(modelItem => item.Specialization) (@Html.DisplayFor(modelItem => item.Duration) sem.)</div>}
+}
+    <h4>Preddiplomski:</h4>
+@foreach (var item in Model) {
+        if (item.Id == 2){<div>- @Html.DisplayFor(modelItem => item.Specialization) (@Html.DisplayFor(modelItem => item.Duration) sem.)</div>}
+}
+    <h4>Diplomski:</h4>
+@foreach (var item in Model) {
+        if (item.Id == 3){<div>- @Html.DisplayFor(modelItem => item.Specialization) (@Html.DisplayFor(modelItem => item.Duration) sem.)</div>}
+}
+    <h4>Poslijediplomski specijalistički:</h4>
+@foreach (var item in Model) {
+        if (item.Id == 4){<div>- @Html.DisplayFor(modelItem => item.Specialization) (@Html.DisplayFor(modelItem => item.Duration) sem.)</div>}
+}
+    <h4>Poslijediplomski doktorski:</h4>
+@foreach (var item in Model) {
+        if (item.Id == 5){<div>- @Html.DisplayFor(modelItem => item.Specialization) (@Html.DisplayFor(modelItem => item.Duration) sem.)</div>}        
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+    <br />
+<br />
+    <br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<br />
+</div>

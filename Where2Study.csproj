@@ -89,6 +89,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -154,29 +155,38 @@
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="BaseController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CityController.cs" />
     <Compile Include="Controllers\ContinentController.cs" />
     <Compile Include="Controllers\CountryController.cs" />
+    <Compile Include="Controllers\CRUDController.cs" />
+    <Compile Include="Controllers\DegreeSpecializationController.cs" />
+    <Compile Include="Controllers\FacultyController.cs" />
+    <Compile Include="Controllers\FacultyTextController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LanguageController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\SpecializationController.cs" />
+    <Compile Include="Controllers\SpecializationTextController.cs" />
+    <Compile Include="Controllers\UniversityController.cs" />
+    <Compile Include="Controllers\UniversityTextController.cs" />
+    <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\CultureHelper.cs" />
+    <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\Continent.cs" />
     <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\DegreeSpecialization.cs" />
     <Compile Include="Models\Error.cs" />
-    <Compile Include="Models\University.cs" />
-    <Compile Include="Models\w2sDB.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>w2sDB.dbml</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Faculty.cs" />
+    <Compile Include="Models\w2s.designer.cs" />
     <Compile Include="Models\w2sRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SiteLanguages.cs" />
+    <Compile Include="Models\SiteLanguages.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\w2s.mdf" />
@@ -196,6 +206,7 @@
     <Content Include="Content\Images\w2s.jpg" />
     <Content Include="Content\Images\w2s.png" />
     <Content Include="Content\Images\w2sNoBackground.gif" />
+    <Content Include="Content\Images\w2s_logo2.png" />
     <Content Include="Content\Images\World_map.png" />
     <Content Include="Content\themes\base\image\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\image\ui-bg_flat_75_ffffff_40x100.png" />
@@ -247,13 +258,13 @@
     <Content Include="Content\Fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\Fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\Fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Models\w2sDB.dbml">
+    <Content Include="Models\w2s.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>w2sDB.designer.cs</LastGenOutput>
+      <LastGenOutput>w2s2.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <None Include="Models\w2sDB.dbml.layout">
-      <DependentUpon>w2sDB.dbml</DependentUpon>
+    <None Include="Models\w2s.dbml.layout">
+      <DependentUpon>w2s.dbml</DependentUpon>
     </None>
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -294,12 +305,10 @@
     <Content Include="Views\Menu\Index.cshtml" />
     <Content Include="Views\Menu\Countries.cshtml" />
     <Content Include="Views\Menu\Cities.cshtml" />
-    <Content Include="Views\Menu\--Continents.cshtml" />
-    <Content Include="Views\Menu\Universities2.cshtml" />
-    <Content Include="Views\Menu\Details.cshtml" />
+    <Content Include="Views\Menu\Details2.cshtml" />
     <Content Include="Views\Language\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Menu\Universities.cshtml" />
+    <Content Include="Views\Menu\Faculties.cshtml" />
     <Content Include="Views\Country\Index.cshtml" />
     <Content Include="Views\Country\Creat.cshtml" />
     <Content Include="Views\Country\Create.cshtml" />
@@ -309,6 +318,124 @@
     <Content Include="Views\Country\Deleted.cshtml" />
     <Content Include="Views\Menu\Search.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\City\Index.cshtml" />
+    <Content Include="Views\City\Details.cshtml" />
+    <Content Include="Views\City\Edit.cshtml" />
+    <Content Include="Views\City\Delete.cshtml" />
+    <Content Include="Views\City\Deleted.cshtml" />
+    <Content Include="Views\City\Create.cshtml" />
+    <Content Include="Views\Faculty\Index.cshtml" />
+    <Content Include="Views\Faculty\Create.cshtml" />
+    <Content Include="Views\Faculty\Edit.cshtml" />
+    <Content Include="Views\Faculty\Delete.cshtml" />
+    <Content Include="Views\Faculty\Deleted.cshtml" />
+    <Content Include="Views\FacultyText\Index.cshtml" />
+    <Content Include="Views\FacultyText\Details.cshtml" />
+    <Content Include="Views\FacultyText\Create.cshtml" />
+    <Content Include="Views\FacultyText\Edit.cshtml" />
+    <Content Include="Views\FacultyText\Delete.cshtml" />
+    <Content Include="Views\FacultyText\Deleted.cshtml" />
+    <Content Include="Views\University\Index.cshtml" />
+    <Content Include="Views\University\Details.cshtml" />
+    <Content Include="Views\University\Create.cshtml" />
+    <Content Include="Views\University\Edit.cshtml" />
+    <Content Include="Views\University\Delete.cshtml" />
+    <Content Include="Views\University\Deleted.cshtml" />
+    <Content Include="Views\UniversityText\Index.cshtml" />
+    <Content Include="Views\UniversityText\Details.cshtml" />
+    <Content Include="Views\UniversityText\Create.cshtml" />
+    <Content Include="Views\UniversityText\Edit.cshtml" />
+    <Content Include="Views\UniversityText\Delete.cshtml" />
+    <Content Include="Views\UniversityText\Deleted.cshtml" />
+    <Content Include="Views\Specialization\Index.cshtml" />
+    <Content Include="Views\Specialization\Details.cshtml" />
+    <Content Include="Views\Specialization\Create.cshtml" />
+    <Content Include="Views\Specialization\Edit.cshtml" />
+    <Content Include="Views\Specialization\Delete.cshtml" />
+    <Content Include="Views\Specialization\Deleted.cshtml" />
+    <Content Include="Views\SpecializationText\Index.cshtml" />
+    <Content Include="Views\SpecializationText\Details.cshtml" />
+    <Content Include="Views\SpecializationText\Create.cshtml" />
+    <Content Include="Views\SpecializationText\Edit.cshtml" />
+    <Content Include="Views\SpecializationText\Delete.cshtml" />
+    <Content Include="Views\SpecializationText\Deleted.cshtml" />
+    <Content Include="Views\DegreeSpecialization\Index.cshtml" />
+    <Content Include="Views\DegreeSpecialization\Details.cshtml" />
+    <Content Include="Views\DegreeSpecialization\Create.cshtml" />
+    <Content Include="Views\DegreeSpecialization\Edit.cshtml" />
+    <Content Include="Views\DegreeSpecialization\Delete.cshtml" />
+    <Content Include="Views\DegreeSpecialization\Deleted.cshtml" />
+    <Content Include="Views\Menu\DegSpecDetails.cshtml" />
+    <Content Include="Views\Menu\Details1.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveExternalLoginsPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Menu\Details.cshtml" />
+    <Content Include="Views\Faculty\Details.cshtml" />
+    <Content Include="Views\CRUD\Index.cshtml" />
+    <Content Include="Views\CRUD\City\Delete.cshtml" />
+    <Content Include="Views\CRUD\City\Deleted.cshtml" />
+    <Content Include="Views\CRUD\City\Details.cshtml" />
+    <Content Include="Views\CRUD\City\Edit.cshtml" />
+    <Content Include="Views\CRUD\City\Index.cshtml" />
+    <Content Include="Views\CRUD\Country\Creat.cshtml" />
+    <Content Include="Views\CRUD\Country\Create.cshtml" />
+    <Content Include="Views\CRUD\Country\Delete.cshtml" />
+    <Content Include="Views\CRUD\Country\Deleted.cshtml" />
+    <Content Include="Views\CRUD\Country\Details.cshtml" />
+    <Content Include="Views\CRUD\Country\Edit.cshtml" />
+    <Content Include="Views\CRUD\Country\Index.cshtml" />
+    <Content Include="Views\CRUD\DegreeSpecialization\Create.cshtml" />
+    <Content Include="Views\CRUD\DegreeSpecialization\Delete.cshtml" />
+    <Content Include="Views\CRUD\DegreeSpecialization\Deleted.cshtml" />
+    <Content Include="Views\CRUD\DegreeSpecialization\Details.cshtml" />
+    <Content Include="Views\CRUD\DegreeSpecialization\Edit.cshtml" />
+    <Content Include="Views\CRUD\DegreeSpecialization\Index.cshtml" />
+    <Content Include="Views\CRUD\Faculty\Create.cshtml" />
+    <Content Include="Views\CRUD\Faculty\Delete.cshtml" />
+    <Content Include="Views\CRUD\Faculty\Deleted.cshtml" />
+    <Content Include="Views\CRUD\Faculty\Details.cshtml" />
+    <Content Include="Views\CRUD\Faculty\Edit.cshtml" />
+    <Content Include="Views\CRUD\Faculty\Index.cshtml" />
+    <Content Include="Views\CRUD\FacultyText\Create.cshtml" />
+    <Content Include="Views\CRUD\FacultyText\Delete.cshtml" />
+    <Content Include="Views\CRUD\FacultyText\Deleted.cshtml" />
+    <Content Include="Views\CRUD\FacultyText\Details.cshtml" />
+    <Content Include="Views\CRUD\FacultyText\Edit.cshtml" />
+    <Content Include="Views\CRUD\FacultyText\Index.cshtml" />
+    <Content Include="Views\CRUD\Specialization\Create.cshtml" />
+    <Content Include="Views\CRUD\Specialization\Delete.cshtml" />
+    <Content Include="Views\CRUD\Specialization\Deleted.cshtml" />
+    <Content Include="Views\CRUD\Specialization\Details.cshtml" />
+    <Content Include="Views\CRUD\Specialization\Edit.cshtml" />
+    <Content Include="Views\CRUD\Specialization\Index.cshtml" />
+    <Content Include="Views\CRUD\SpecializationText\Create.cshtml" />
+    <Content Include="Views\CRUD\SpecializationText\Delete.cshtml" />
+    <Content Include="Views\CRUD\SpecializationText\Deleted.cshtml" />
+    <Content Include="Views\CRUD\SpecializationText\Details.cshtml" />
+    <Content Include="Views\CRUD\SpecializationText\Edit.cshtml" />
+    <Content Include="Views\CRUD\SpecializationText\Index.cshtml" />
+    <Content Include="Views\CRUD\University\Create.cshtml" />
+    <Content Include="Views\CRUD\University\Delete.cshtml" />
+    <Content Include="Views\CRUD\University\Deleted.cshtml" />
+    <Content Include="Views\CRUD\University\Details.cshtml" />
+    <Content Include="Views\CRUD\University\Edit.cshtml" />
+    <Content Include="Views\CRUD\University\Index.cshtml" />
+    <Content Include="Views\CRUD\UniversityText\Create.cshtml" />
+    <Content Include="Views\CRUD\UniversityText\Delete.cshtml" />
+    <Content Include="Views\CRUD\UniversityText\Deleted.cshtml" />
+    <Content Include="Views\CRUD\UniversityText\Details.cshtml" />
+    <Content Include="Views\CRUD\UniversityText\Edit.cshtml" />
+    <Content Include="Views\CRUD\UniversityText\Index.cshtml" />
+    <Content Include="Views\CRUD\City\Create.cshtml" />
+    <Content Include="Views\CRUD\Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
@@ -321,6 +448,9 @@
       <Project>{7a763e5a-9d5d-473c-9657-ae13762dc4fb}</Project>
       <Name>Resources</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Where2Study.Models.University>
+﻿@model IEnumerable<Where2Study.Models.Faculty>
 
 @{
     ViewBag.Title = "Search";
@@ -36,7 +36,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.ActionLink(item.Title, "Details", new {city=item.City, university=item.Title})
+            @Html.ActionLink(item.Title, "Details", new {city=item.City, faculty=item.Title})
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Address)

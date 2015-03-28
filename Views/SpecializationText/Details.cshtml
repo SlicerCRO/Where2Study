@@ -1,0 +1,36 @@
+﻿@model Where2Study.Models.smjer_tekst
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>smjer_tekst</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.id_smjer)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.id_smjer)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.id_jezik)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.id_jezik)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.tekst)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.tekst)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

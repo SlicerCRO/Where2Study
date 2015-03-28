@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Where2Study.Models.Faculty>
+
+@{
+    ViewBag.Title = "Details";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h2> @Html.DisplayNameFor(model => model.Title)</h2>
+        </div>
+    </div>
+</div>
+
+<fieldset>
+    @foreach (var item in Model)
+    {
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+
+                    <legend>@Html.DisplayFor(modelItem => item.Title)</legend>
+                </div>
+            </div>
+        </div>
+
+        @* <div class="display-label">id_fakultet</div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.id_fakultet)
+            </div>
+
+            <div class="display-label">id_jezik</div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.id_jezik)
+            </div> *@
+
+        <div class="container">
+            <div class="row">
+                
+                    <img src="/content/Images/Slike/@item.Photo" alt="@item.Title" style="width:460px;height:auto;">
+                    <div class="text-box.multi-line">@Html.TextAreaFor(modelItem => item.Description, new { @readonly = true })</div>
+            </div>
+        </div>
+        @* <div class="text-box.multi-line">@Html.DisplayFor(modelItem => item.Description, new { @class = "test2" })</div>*@
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="display-field">
+                        @Html.DisplayNameFor(model => model.Address):
+                        @Html.DisplayFor(modelItem => item.Address)<br />
+                        @Html.DisplayNameFor(model => model.Phone):
+                        @Html.DisplayFor(modelItem => item.Phone)<br />
+                        @Html.DisplayNameFor(model => model.WebSite):
+                        <a href="http://@item.WebSite">@Html.DisplayFor(modelItem => item.WebSite)</a><br />
+                        @Html.DisplayNameFor(model => model.City):
+                        @Html.DisplayFor(modelItem => item.City)<br />
+                        @Html.DisplayNameFor(model => model.Country):
+                        @Html.DisplayFor(modelItem => item.Country)<br />
+                                    @Html.ActionLink("Smjerovi", "DegSpecDetails", new {city=item.City, faculty=item.Title})<br />
+
+                        @*@Html.DisplayNameFor(model => model.Continent):
+                            @Html.DisplayFor(modelItem => item.Continent)<br />*@
+
+                        <p>
+                            @Html.ActionLink("Back to List", "Index")
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</fieldset>
+
+
+
+<script>$("textarea").height($("textarea")[0].scrollHeight);</script>

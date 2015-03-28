@@ -13,7 +13,7 @@ namespace Where2Study.Controllers
 
         public void Index()
         {
-            Response.Write("<h1>Continents: </h1>");
+           // Response.Write("<h1>Continents: </h1>");
         }
 
 

@@ -8,7 +8,7 @@ using Where2Study.Models;
 
 namespace Where2Study.Controllers
 {
-    public class SearchController : Controller
+    public class SearchController : BaseController
     {
         //
         // GET: /Search/
@@ -19,7 +19,7 @@ namespace Where2Study.Controllers
             var cultureInfo = Thread.CurrentThread.CurrentUICulture;
             var currentLanguage = cultureInfo.TwoLetterISOLanguageName;
 
-            var db = new w2sDBDataContext();
+            var db = new w2sDataContext();
             var searchList = from ft in db.fakultet_teksts
                              from f in db.fakultets
                              from gt in db.grad_teksts
@@ -29,7 +29,7 @@ namespace Where2Study.Controllers
                              from kt in db.kontinent_teksts
                              from j in db.jeziks
                              where ft.naziv.Contains("Odjel za") && j.kratica == currentLanguage && ft.id_fakultet == f.id && f.id_grad == g.id && g.id_drzava == d.id && d.id_kontinent == kt.id_kontinent && gt.id_grad == g.id && dt.id_drzava == d.id && ft.id_jezik == j.id && gt.id_jezik == j.id && dt.id_jezik == j.id && kt.id_jezik == j.id
-                             select new University()
+                             select new Faculty()
                              {
                                  Continent = kt.tekst,
                                  Country = dt.naziv,

@@ -1,0 +1,61 @@
+﻿@model Where2Study.Models.fakultet
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>fakultet</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.id_grad)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.id_grad)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.adresa_fakulteta)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.adresa_fakulteta)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.broj_telefona)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.broj_telefona)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.id_sveuciliste)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.id_sveuciliste)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.web)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.web)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.slika)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.slika)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

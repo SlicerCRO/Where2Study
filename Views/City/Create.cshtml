@@ -1,0 +1,60 @@
+﻿@model Where2Study.Models.grad_tekst
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>grad_tekst</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.id_grad)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.id_grad)
+            @Html.ValidationMessageFor(model => model.id_grad)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.id_jezik)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.id_jezik)
+            @Html.ValidationMessageFor(model => model.id_jezik)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.naziv)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.naziv)
+            @Html.ValidationMessageFor(model => model.naziv)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.opis)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.opis)
+            @Html.ValidationMessageFor(model => model.opis)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@* @section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+} *@

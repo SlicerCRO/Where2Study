@@ -1,0 +1,47 @@
+﻿@model Where2Study.Models.grad_tekst
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>grad_tekst</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.id_grad)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.id_grad)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.id_jezik)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.id_jezik)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.naziv)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.naziv)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.opis)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.opis)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

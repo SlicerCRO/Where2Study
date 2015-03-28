@@ -10,13 +10,13 @@ namespace Where2Study.Controllers
     public class CountryController : BaseController
     {
         w2sRepository repository = new w2sRepository();
-
+        [Authorize]
         //
         // GET: /Country/
 
         public ActionResult Index()
         {
-            Response.Write("<h1>Countries: </h1>");
+           // Response.Write("<h1>Countries: </h1>");
             var country = repository.FindAllCountries().ToList();
 
             return View("index", country);
@@ -49,7 +49,7 @@ namespace Where2Study.Controllers
         //
         // POST: /Country/Create
 
-        [AcceptVerbs(HttpVerbs.Post)]
+        [AcceptVerbs(HttpVerbs.Post), ValidateInput(false)]
         public ActionResult Create(drzava_tekst country)//FormCollection collection)
         {
             if (ModelState.IsValid)
@@ -82,7 +82,7 @@ namespace Where2Study.Controllers
         //
         // POST: /Country/Edit/5
 
-        [AcceptVerbs(HttpVerbs.Post)]
+        [AcceptVerbs(HttpVerbs.Post), ValidateInput(false)]
         public ActionResult Edit(int id, FormCollection formvalues)
         {
             drzava_tekst country=repository.Get_drzava_tekst(id);

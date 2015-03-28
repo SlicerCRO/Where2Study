@@ -1,0 +1,50 @@
+﻿@model Where2Study.Models.sveuciliste_tekst
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>sveuciliste_tekst</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IsValid)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsValid)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.id_sveuciliste)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.id_sveuciliste)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.id_jezik)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.id_jezik)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.naziv)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.naziv)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.opis)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.opis)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

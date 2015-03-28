@@ -22,7 +22,7 @@ namespace Where2Study.Models
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="w2s")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="w2sDB")]
 	public partial class w2sDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -33,12 +33,24 @@ namespace Where2Study.Models
     partial void Insertdrzava(drzava instance);
     partial void Updatedrzava(drzava instance);
     partial void Deletedrzava(drzava instance);
+    partial void Insertsveuciliste_tekst(sveuciliste_tekst instance);
+    partial void Updatesveuciliste_tekst(sveuciliste_tekst instance);
+    partial void Deletesveuciliste_tekst(sveuciliste_tekst instance);
+    partial void Insertdrzava_tekst(drzava_tekst instance);
+    partial void Updatedrzava_tekst(drzava_tekst instance);
+    partial void Deletedrzava_tekst(drzava_tekst instance);
     partial void Insertfakultet(fakultet instance);
     partial void Updatefakultet(fakultet instance);
     partial void Deletefakultet(fakultet instance);
+    partial void Insertfakultet_tekst(fakultet_tekst instance);
+    partial void Updatefakultet_tekst(fakultet_tekst instance);
+    partial void Deletefakultet_tekst(fakultet_tekst instance);
     partial void Insertgrad(grad instance);
     partial void Updategrad(grad instance);
     partial void Deletegrad(grad instance);
+    partial void Insertgrad_tekst(grad_tekst instance);
+    partial void Updategrad_tekst(grad_tekst instance);
+    partial void Deletegrad_tekst(grad_tekst instance);
     partial void Insertjezik(jezik instance);
     partial void Updatejezik(jezik instance);
     partial void Deletejezik(jezik instance);
@@ -51,9 +63,18 @@ namespace Where2Study.Models
     partial void Insertsmjer(smjer instance);
     partial void Updatesmjer(smjer instance);
     partial void Deletesmjer(smjer instance);
+    partial void Insertsmjer_tekst(smjer_tekst instance);
+    partial void Updatesmjer_tekst(smjer_tekst instance);
+    partial void Deletesmjer_tekst(smjer_tekst instance);
     partial void Insertstupanj(stupanj instance);
     partial void Updatestupanj(stupanj instance);
     partial void Deletestupanj(stupanj instance);
+    partial void Insertstupanj_smjer(stupanj_smjer instance);
+    partial void Updatestupanj_smjer(stupanj_smjer instance);
+    partial void Deletestupanj_smjer(stupanj_smjer instance);
+    partial void Insertsveuciliste(sveuciliste instance);
+    partial void Updatesveuciliste(sveuciliste instance);
+    partial void Deletesveuciliste(sveuciliste instance);
     #endregion
 		
 		public w2sDataContext() : 
@@ -94,11 +115,11 @@ namespace Where2Study.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<stupanj_tekst> stupanj_teksts
+		public System.Data.Linq.Table<sveuciliste_tekst> sveuciliste_teksts
 		{
 			get
 			{
-				return this.GetTable<stupanj_tekst>();
+				return this.GetTable<sveuciliste_tekst>();
 			}
 		}
 		
@@ -221,6 +242,30 @@ namespace Where2Study.Models
 				return this.GetTable<stupanj>();
 			}
 		}
+		
+		public System.Data.Linq.Table<stupanj_smjer> stupanj_smjers
+		{
+			get
+			{
+				return this.GetTable<stupanj_smjer>();
+			}
+		}
+		
+		public System.Data.Linq.Table<stupanj_tekst> stupanj_teksts
+		{
+			get
+			{
+				return this.GetTable<stupanj_tekst>();
+			}
+		}
+		
+		public System.Data.Linq.Table<sveuciliste> sveucilistes
+		{
+			get
+			{
+				return this.GetTable<sveuciliste>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.drzava")]
@@ -232,6 +277,8 @@ namespace Where2Study.Models
 		private int _id;
 		
 		private System.Nullable<int> _id_kontinent;
+		
+		private EntitySet<drzava_tekst> _drzava_teksts;
 		
 		private EntitySet<grad> _grads;
 		
@@ -249,6 +296,7 @@ namespace Where2Study.Models
 		
 		public drzava()
 		{
+			this._drzava_teksts = new EntitySet<drzava_tekst>(new Action<drzava_tekst>(this.attach_drzava_teksts), new Action<drzava_tekst>(this.detach_drzava_teksts));
 			this._grads = new EntitySet<grad>(new Action<grad>(this.attach_grads), new Action<grad>(this.detach_grads));
 			this._kontinent = default(EntityRef<kontinent>);
 			OnCreated();
@@ -295,6 +343,19 @@ namespace Where2Study.Models
 					this.SendPropertyChanged("id_kontinent");
 					this.Onid_kontinentChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="drzava_drzava_tekst", Storage="_drzava_teksts", ThisKey="id", OtherKey="id_drzava")]
+		public EntitySet<drzava_tekst> drzava_teksts
+		{
+			get
+			{
+				return this._drzava_teksts;
+			}
+			set
+			{
+				this._drzava_teksts.Assign(value);
 			}
 		}
 		
@@ -365,6 +426,18 @@ namespace Where2Study.Models
 			}
 		}
 		
+		private void attach_drzava_teksts(drzava_tekst entity)
+		{
+			this.SendPropertyChanging();
+			entity.drzava = this;
+		}
+		
+		private void detach_drzava_teksts(drzava_tekst entity)
+		{
+			this.SendPropertyChanging();
+			entity.drzava = null;
+		}
+		
 		private void attach_grads(grad entity)
 		{
 			this.SendPropertyChanging();
@@ -378,32 +451,69 @@ namespace Where2Study.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.stupanj_tekst")]
-	public partial class stupanj_tekst
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.sveuciliste_tekst")]
+	public partial class sveuciliste_tekst : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
-		private System.Nullable<int> _id_stupanj;
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<int> _id_sveuciliste;
 		
 		private System.Nullable<int> _id_jezik;
 		
 		private string _naziv;
 		
-		public stupanj_tekst()
+		private string _opis;
+		
+		private int _id;
+		
+		private EntityRef<jezik> _jezik;
+		
+		private EntityRef<sveuciliste> _sveuciliste;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+   // partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_sveucilisteChanging(System.Nullable<int> value);
+    partial void Onid_sveucilisteChanged();
+    partial void Onid_jezikChanging(System.Nullable<int> value);
+    partial void Onid_jezikChanged();
+    partial void OnnazivChanging(string value);
+    partial void OnnazivChanged();
+    partial void OnopisChanging(string value);
+    partial void OnopisChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    #endregion
+		
+		public sveuciliste_tekst()
 		{
+			this._jezik = default(EntityRef<jezik>);
+			this._sveuciliste = default(EntityRef<sveuciliste>);
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_stupanj", DbType="Int")]
-		public System.Nullable<int> id_stupanj
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_sveuciliste", DbType="Int")]
+		public System.Nullable<int> id_sveuciliste
 		{
 			get
 			{
-				return this._id_stupanj;
+				return this._id_sveuciliste;
 			}
 			set
 			{
-				if ((this._id_stupanj != value))
+				if ((this._id_sveuciliste != value))
 				{
-					this._id_stupanj = value;
+					if (this._sveuciliste.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_sveucilisteChanging(value);
+					this.SendPropertyChanging();
+					this._id_sveuciliste = value;
+					this.SendPropertyChanged("id_sveuciliste");
+					this.Onid_sveucilisteChanged();
 				}
 			}
 		}
@@ -419,12 +529,20 @@ namespace Where2Study.Models
 			{
 				if ((this._id_jezik != value))
 				{
+					if (this._jezik.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_jezikChanging(value);
+					this.SendPropertyChanging();
 					this._id_jezik = value;
+					this.SendPropertyChanged("id_jezik");
+					this.Onid_jezikChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_naziv", DbType="Text", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_naziv", DbType="VarChar(MAX)")]
 		public string naziv
 		{
 			get
@@ -435,24 +553,185 @@ namespace Where2Study.Models
 			{
 				if ((this._naziv != value))
 				{
+					this.OnnazivChanging(value);
+					this.SendPropertyChanging();
 					this._naziv = value;
+					this.SendPropertyChanged("naziv");
+					this.OnnazivChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_opis", DbType="Text", UpdateCheck=UpdateCheck.Never)]
+		public string opis
+		{
+			get
+			{
+				return this._opis;
+			}
+			set
+			{
+				if ((this._opis != value))
+				{
+					this.OnopisChanging(value);
+					this.SendPropertyChanging();
+					this._opis = value;
+					this.SendPropertyChanged("opis");
+					this.OnopisChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="jezik_sveuciliste_tekst", Storage="_jezik", ThisKey="id_jezik", OtherKey="id", IsForeignKey=true, DeleteRule="SET NULL")]
+		public jezik jezik
+		{
+			get
+			{
+				return this._jezik.Entity;
+			}
+			set
+			{
+				jezik previousValue = this._jezik.Entity;
+				if (((previousValue != value) 
+							|| (this._jezik.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._jezik.Entity = null;
+						previousValue.sveuciliste_teksts.Remove(this);
+					}
+					this._jezik.Entity = value;
+					if ((value != null))
+					{
+						value.sveuciliste_teksts.Add(this);
+						this._id_jezik = value.id;
+					}
+					else
+					{
+						this._id_jezik = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("jezik");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="sveuciliste_sveuciliste_tekst", Storage="_sveuciliste", ThisKey="id_sveuciliste", OtherKey="id", IsForeignKey=true, DeleteRule="SET NULL")]
+		public sveuciliste sveuciliste
+		{
+			get
+			{
+				return this._sveuciliste.Entity;
+			}
+			set
+			{
+				sveuciliste previousValue = this._sveuciliste.Entity;
+				if (((previousValue != value) 
+							|| (this._sveuciliste.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._sveuciliste.Entity = null;
+						previousValue.sveuciliste_teksts.Remove(this);
+					}
+					this._sveuciliste.Entity = value;
+					if ((value != null))
+					{
+						value.sveuciliste_teksts.Add(this);
+						this._id_sveuciliste = value.id;
+					}
+					else
+					{
+						this._id_sveuciliste = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("sveuciliste");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.drzava_tekst")]
-	public partial class drzava_tekst
+	public partial class drzava_tekst : INotifyPropertyChanging, INotifyPropertyChanged
 	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private System.Nullable<int> _id_drzava;
 		
 		private System.Nullable<int> _id_jezik;
 		
-		private string _tekst;
+		private string _naziv;
+		
+		private string _opis;
+		
+		private int _id;
+		
+		private EntityRef<drzava> _drzava;
+		
+		private EntityRef<jezik> _jezik;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    //partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_drzavaChanging(System.Nullable<int> value);
+    partial void Onid_drzavaChanged();
+    partial void Onid_jezikChanging(System.Nullable<int> value);
+    partial void Onid_jezikChanged();
+    partial void OnnazivChanging(string value);
+    partial void OnnazivChanged();
+    partial void OnopisChanging(string value);
+    partial void OnopisChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    #endregion
 		
 		public drzava_tekst()
 		{
+			this._drzava = default(EntityRef<drzava>);
+			this._jezik = default(EntityRef<jezik>);
+			OnCreated();
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_drzava", DbType="Int")]
@@ -466,7 +745,15 @@ namespace Where2Study.Models
 			{
 				if ((this._id_drzava != value))
 				{
+					if (this._drzava.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_drzavaChanging(value);
+					this.SendPropertyChanging();
 					this._id_drzava = value;
+					this.SendPropertyChanged("id_drzava");
+					this.Onid_drzavaChanged();
 				}
 			}
 		}
@@ -482,24 +769,164 @@ namespace Where2Study.Models
 			{
 				if ((this._id_jezik != value))
 				{
+					if (this._jezik.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_jezikChanging(value);
+					this.SendPropertyChanging();
 					this._id_jezik = value;
+					this.SendPropertyChanged("id_jezik");
+					this.Onid_jezikChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tekst", DbType="VarChar(MAX)")]
-		public string tekst
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_naziv", DbType="NVarChar(50)")]
+		public string naziv
 		{
 			get
 			{
-				return this._tekst;
+				return this._naziv;
 			}
 			set
 			{
-				if ((this._tekst != value))
+				if ((this._naziv != value))
 				{
-					this._tekst = value;
+					this.OnnazivChanging(value);
+					this.SendPropertyChanging();
+					this._naziv = value;
+					this.SendPropertyChanged("naziv");
+					this.OnnazivChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_opis", DbType="Text", UpdateCheck=UpdateCheck.Never)]
+		public string opis
+		{
+			get
+			{
+				return this._opis;
+			}
+			set
+			{
+				if ((this._opis != value))
+				{
+					this.OnopisChanging(value);
+					this.SendPropertyChanging();
+					this._opis = value;
+					this.SendPropertyChanged("opis");
+					this.OnopisChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="drzava_drzava_tekst", Storage="_drzava", ThisKey="id_drzava", OtherKey="id", IsForeignKey=true, DeleteRule="SET NULL")]
+		public drzava drzava
+		{
+			get
+			{
+				return this._drzava.Entity;
+			}
+			set
+			{
+				drzava previousValue = this._drzava.Entity;
+				if (((previousValue != value) 
+							|| (this._drzava.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._drzava.Entity = null;
+						previousValue.drzava_teksts.Remove(this);
+					}
+					this._drzava.Entity = value;
+					if ((value != null))
+					{
+						value.drzava_teksts.Add(this);
+						this._id_drzava = value.id;
+					}
+					else
+					{
+						this._id_drzava = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("drzava");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="jezik_drzava_tekst", Storage="_jezik", ThisKey="id_jezik", OtherKey="id", IsForeignKey=true, DeleteRule="SET NULL")]
+		public jezik jezik
+		{
+			get
+			{
+				return this._jezik.Entity;
+			}
+			set
+			{
+				jezik previousValue = this._jezik.Entity;
+				if (((previousValue != value) 
+							|| (this._jezik.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._jezik.Entity = null;
+						previousValue.drzava_teksts.Remove(this);
+					}
+					this._jezik.Entity = value;
+					if ((value != null))
+					{
+						value.drzava_teksts.Add(this);
+						this._id_jezik = value.id;
+					}
+					else
+					{
+						this._id_jezik = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("jezik");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -522,9 +949,15 @@ namespace Where2Study.Models
 		
 		private string _web;
 		
+		private string _slika;
+		
+		private EntitySet<fakultet_tekst> _fakultet_teksts;
+		
 		private EntitySet<smjer> _smjers;
 		
 		private EntityRef<grad> _grad;
+		
+		private EntityRef<sveuciliste> _sveuciliste;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -542,12 +975,16 @@ namespace Where2Study.Models
     partial void Onid_sveucilisteChanged();
     partial void OnwebChanging(string value);
     partial void OnwebChanged();
+    partial void OnslikaChanging(string value);
+    partial void OnslikaChanged();
     #endregion
 		
 		public fakultet()
 		{
+			this._fakultet_teksts = new EntitySet<fakultet_tekst>(new Action<fakultet_tekst>(this.attach_fakultet_teksts), new Action<fakultet_tekst>(this.detach_fakultet_teksts));
 			this._smjers = new EntitySet<smjer>(new Action<smjer>(this.attach_smjers), new Action<smjer>(this.detach_smjers));
 			this._grad = default(EntityRef<grad>);
+			this._sveuciliste = default(EntityRef<sveuciliste>);
 			OnCreated();
 		}
 		
@@ -646,6 +1083,10 @@ namespace Where2Study.Models
 			{
 				if ((this._id_sveuciliste != value))
 				{
+					if (this._sveuciliste.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.Onid_sveucilisteChanging(value);
 					this.SendPropertyChanging();
 					this._id_sveuciliste = value;
@@ -672,6 +1113,39 @@ namespace Where2Study.Models
 					this.SendPropertyChanged("web");
 					this.OnwebChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_slika", DbType="Text", UpdateCheck=UpdateCheck.Never)]
+		public string slika
+		{
+			get
+			{
+				return this._slika;
+			}
+			set
+			{
+				if ((this._slika != value))
+				{
+					this.OnslikaChanging(value);
+					this.SendPropertyChanging();
+					this._slika = value;
+					this.SendPropertyChanged("slika");
+					this.OnslikaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="fakultet_fakultet_tekst", Storage="_fakultet_teksts", ThisKey="id", OtherKey="id_fakultet")]
+		public EntitySet<fakultet_tekst> fakultet_teksts
+		{
+			get
+			{
+				return this._fakultet_teksts;
+			}
+			set
+			{
+				this._fakultet_teksts.Assign(value);
 			}
 		}
 		
@@ -722,6 +1196,40 @@ namespace Where2Study.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="sveuciliste_fakultet", Storage="_sveuciliste", ThisKey="id_sveuciliste", OtherKey="id", IsForeignKey=true, DeleteRule="SET NULL")]
+		public sveuciliste sveuciliste
+		{
+			get
+			{
+				return this._sveuciliste.Entity;
+			}
+			set
+			{
+				sveuciliste previousValue = this._sveuciliste.Entity;
+				if (((previousValue != value) 
+							|| (this._sveuciliste.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._sveuciliste.Entity = null;
+						previousValue.fakultets.Remove(this);
+					}
+					this._sveuciliste.Entity = value;
+					if ((value != null))
+					{
+						value.fakultets.Add(this);
+						this._id_sveuciliste = value.id;
+					}
+					else
+					{
+						this._id_sveuciliste = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("sveuciliste");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -742,6 +1250,18 @@ namespace Where2Study.Models
 			}
 		}
 		
+		private void attach_fakultet_teksts(fakultet_tekst entity)
+		{
+			this.SendPropertyChanging();
+			entity.fakultet = this;
+		}
+		
+		private void detach_fakultet_teksts(fakultet_tekst entity)
+		{
+			this.SendPropertyChanging();
+			entity.fakultet = null;
+		}
+		
 		private void attach_smjers(smjer entity)
 		{
 			this.SendPropertyChanging();
@@ -756,19 +1276,46 @@ namespace Where2Study.Models
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.fakultet_tekst")]
-	public partial class fakultet_tekst
+	public partial class fakultet_tekst : INotifyPropertyChanging, INotifyPropertyChanged
 	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private System.Nullable<int> _id_fakultet;
 		
 		private System.Nullable<int> _id_jezik;
 		
 		private string _naziv;
-
-        private string _opis;
-
+		
+		private string _opis;
+		
+		private int _id;
+		
+		private EntityRef<fakultet> _fakultet;
+		
+		private EntityRef<jezik> _jezik;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    //partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_fakultetChanging(System.Nullable<int> value);
+    partial void Onid_fakultetChanged();
+    partial void Onid_jezikChanging(System.Nullable<int> value);
+    partial void Onid_jezikChanged();
+    partial void OnnazivChanging(string value);
+    partial void OnnazivChanged();
+    partial void OnopisChanging(string value);
+    partial void OnopisChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    #endregion
+		
 		public fakultet_tekst()
 		{
+			this._fakultet = default(EntityRef<fakultet>);
+			this._jezik = default(EntityRef<jezik>);
+			OnCreated();
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_fakultet", DbType="Int")]
@@ -782,7 +1329,15 @@ namespace Where2Study.Models
 			{
 				if ((this._id_fakultet != value))
 				{
+					if (this._fakultet.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_fakultetChanging(value);
+					this.SendPropertyChanging();
 					this._id_fakultet = value;
+					this.SendPropertyChanged("id_fakultet");
+					this.Onid_fakultetChanged();
 				}
 			}
 		}
@@ -798,28 +1353,40 @@ namespace Where2Study.Models
 			{
 				if ((this._id_jezik != value))
 				{
+					if (this._jezik.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_jezikChanging(value);
+					this.SendPropertyChanging();
 					this._id_jezik = value;
+					this.SendPropertyChanged("id_jezik");
+					this.Onid_jezikChanged();
 				}
 			}
 		}
-
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_naziv", DbType = "text")]
-        public string naziv
-        {
-            get
-            {
-                return this._naziv;
-            }
-            set
-            {
-                if ((this._naziv != value))
-                {
-                    this._naziv = value;
-                }
-            }
-        }
-
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_opis", DbType="text")]
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_naziv", DbType="VarChar(MAX)")]
+		public string naziv
+		{
+			get
+			{
+				return this._naziv;
+			}
+			set
+			{
+				if ((this._naziv != value))
+				{
+					this.OnnazivChanging(value);
+					this.SendPropertyChanging();
+					this._naziv = value;
+					this.SendPropertyChanged("naziv");
+					this.OnnazivChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_opis", DbType="Text", UpdateCheck=UpdateCheck.Never)]
 		public string opis
 		{
 			get
@@ -830,8 +1397,120 @@ namespace Where2Study.Models
 			{
 				if ((this._opis != value))
 				{
+					this.OnopisChanging(value);
+					this.SendPropertyChanging();
 					this._opis = value;
+					this.SendPropertyChanged("opis");
+					this.OnopisChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="fakultet_fakultet_tekst", Storage="_fakultet", ThisKey="id_fakultet", OtherKey="id", IsForeignKey=true, DeleteRule="SET NULL")]
+		public fakultet fakultet
+		{
+			get
+			{
+				return this._fakultet.Entity;
+			}
+			set
+			{
+				fakultet previousValue = this._fakultet.Entity;
+				if (((previousValue != value) 
+							|| (this._fakultet.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._fakultet.Entity = null;
+						previousValue.fakultet_teksts.Remove(this);
+					}
+					this._fakultet.Entity = value;
+					if ((value != null))
+					{
+						value.fakultet_teksts.Add(this);
+						this._id_fakultet = value.id;
+					}
+					else
+					{
+						this._id_fakultet = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("fakultet");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="jezik_fakultet_tekst", Storage="_jezik", ThisKey="id_jezik", OtherKey="id", IsForeignKey=true, DeleteRule="SET NULL")]
+		public jezik jezik
+		{
+			get
+			{
+				return this._jezik.Entity;
+			}
+			set
+			{
+				jezik previousValue = this._jezik.Entity;
+				if (((previousValue != value) 
+							|| (this._jezik.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._jezik.Entity = null;
+						previousValue.fakultet_teksts.Remove(this);
+					}
+					this._jezik.Entity = value;
+					if ((value != null))
+					{
+						value.fakultet_teksts.Add(this);
+						this._id_jezik = value.id;
+					}
+					else
+					{
+						this._id_jezik = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("jezik");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -848,6 +1527,10 @@ namespace Where2Study.Models
 		
 		private EntitySet<fakultet> _fakultets;
 		
+		private EntitySet<grad_tekst> _grad_teksts;
+		
+		private EntitySet<sveuciliste> _sveucilistes;
+		
 		private EntityRef<drzava> _drzava;
 		
     #region Extensibility Method Definitions
@@ -863,6 +1546,8 @@ namespace Where2Study.Models
 		public grad()
 		{
 			this._fakultets = new EntitySet<fakultet>(new Action<fakultet>(this.attach_fakultets), new Action<fakultet>(this.detach_fakultets));
+			this._grad_teksts = new EntitySet<grad_tekst>(new Action<grad_tekst>(this.attach_grad_teksts), new Action<grad_tekst>(this.detach_grad_teksts));
+			this._sveucilistes = new EntitySet<sveuciliste>(new Action<sveuciliste>(this.attach_sveucilistes), new Action<sveuciliste>(this.detach_sveucilistes));
 			this._drzava = default(EntityRef<drzava>);
 			OnCreated();
 		}
@@ -921,6 +1606,32 @@ namespace Where2Study.Models
 			set
 			{
 				this._fakultets.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="grad_grad_tekst", Storage="_grad_teksts", ThisKey="id", OtherKey="id_grad")]
+		public EntitySet<grad_tekst> grad_teksts
+		{
+			get
+			{
+				return this._grad_teksts;
+			}
+			set
+			{
+				this._grad_teksts.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="grad_sveuciliste", Storage="_sveucilistes", ThisKey="id", OtherKey="id_grad")]
+		public EntitySet<sveuciliste> sveucilistes
+		{
+			get
+			{
+				return this._sveucilistes;
+			}
+			set
+			{
+				this._sveucilistes.Assign(value);
 			}
 		}
 		
@@ -989,20 +1700,73 @@ namespace Where2Study.Models
 			this.SendPropertyChanging();
 			entity.grad = null;
 		}
+		
+		private void attach_grad_teksts(grad_tekst entity)
+		{
+			this.SendPropertyChanging();
+			entity.grad = this;
+		}
+		
+		private void detach_grad_teksts(grad_tekst entity)
+		{
+			this.SendPropertyChanging();
+			entity.grad = null;
+		}
+		
+		private void attach_sveucilistes(sveuciliste entity)
+		{
+			this.SendPropertyChanging();
+			entity.grad = this;
+		}
+		
+		private void detach_sveucilistes(sveuciliste entity)
+		{
+			this.SendPropertyChanging();
+			entity.grad = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.grad_tekst")]
-	public partial class grad_tekst
+	public partial class grad_tekst : INotifyPropertyChanging, INotifyPropertyChanged
 	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private System.Nullable<int> _id_grad;
 		
 		private System.Nullable<int> _id_jezik;
 		
-		private string _tekst;
+		private string _naziv;
+		
+		private string _opis;
+		
+		private int _id;
+		
+		private EntityRef<grad> _grad;
+		
+		private EntityRef<jezik> _jezik;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    //partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_gradChanging(System.Nullable<int> value);
+    partial void Onid_gradChanged();
+    partial void Onid_jezikChanging(System.Nullable<int> value);
+    partial void Onid_jezikChanged();
+    partial void OnnazivChanging(string value);
+    partial void OnnazivChanged();
+    partial void OnopisChanging(string value);
+    partial void OnopisChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    #endregion
 		
 		public grad_tekst()
 		{
+			this._grad = default(EntityRef<grad>);
+			this._jezik = default(EntityRef<jezik>);
+			OnCreated();
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_grad", DbType="Int")]
@@ -1016,7 +1780,15 @@ namespace Where2Study.Models
 			{
 				if ((this._id_grad != value))
 				{
+					if (this._grad.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_gradChanging(value);
+					this.SendPropertyChanging();
 					this._id_grad = value;
+					this.SendPropertyChanged("id_grad");
+					this.Onid_gradChanged();
 				}
 			}
 		}
@@ -1032,24 +1804,164 @@ namespace Where2Study.Models
 			{
 				if ((this._id_jezik != value))
 				{
+					if (this._jezik.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_jezikChanging(value);
+					this.SendPropertyChanging();
 					this._id_jezik = value;
+					this.SendPropertyChanged("id_jezik");
+					this.Onid_jezikChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tekst", DbType="VarChar(MAX)")]
-		public string tekst
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_naziv", DbType="VarChar(MAX)")]
+		public string naziv
 		{
 			get
 			{
-				return this._tekst;
+				return this._naziv;
 			}
 			set
 			{
-				if ((this._tekst != value))
+				if ((this._naziv != value))
 				{
-					this._tekst = value;
+					this.OnnazivChanging(value);
+					this.SendPropertyChanging();
+					this._naziv = value;
+					this.SendPropertyChanged("naziv");
+					this.OnnazivChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_opis", DbType="Text", UpdateCheck=UpdateCheck.Never)]
+		public string opis
+		{
+			get
+			{
+				return this._opis;
+			}
+			set
+			{
+				if ((this._opis != value))
+				{
+					this.OnopisChanging(value);
+					this.SendPropertyChanging();
+					this._opis = value;
+					this.SendPropertyChanged("opis");
+					this.OnopisChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="grad_grad_tekst", Storage="_grad", ThisKey="id_grad", OtherKey="id", IsForeignKey=true, DeleteRule="SET NULL")]
+		public grad grad
+		{
+			get
+			{
+				return this._grad.Entity;
+			}
+			set
+			{
+				grad previousValue = this._grad.Entity;
+				if (((previousValue != value) 
+							|| (this._grad.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._grad.Entity = null;
+						previousValue.grad_teksts.Remove(this);
+					}
+					this._grad.Entity = value;
+					if ((value != null))
+					{
+						value.grad_teksts.Add(this);
+						this._id_grad = value.id;
+					}
+					else
+					{
+						this._id_grad = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("grad");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="jezik_grad_tekst", Storage="_jezik", ThisKey="id_jezik", OtherKey="id", IsForeignKey=true, DeleteRule="SET NULL")]
+		public jezik jezik
+		{
+			get
+			{
+				return this._jezik.Entity;
+			}
+			set
+			{
+				jezik previousValue = this._jezik.Entity;
+				if (((previousValue != value) 
+							|| (this._jezik.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._jezik.Entity = null;
+						previousValue.grad_teksts.Remove(this);
+					}
+					this._jezik.Entity = value;
+					if ((value != null))
+					{
+						value.grad_teksts.Add(this);
+						this._id_jezik = value.id;
+					}
+					else
+					{
+						this._id_jezik = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("jezik");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -1066,6 +1978,16 @@ namespace Where2Study.Models
 		
 		private string _ime_jezika;
 		
+		private EntitySet<sveuciliste_tekst> _sveuciliste_teksts;
+		
+		private EntitySet<drzava_tekst> _drzava_teksts;
+		
+		private EntitySet<fakultet_tekst> _fakultet_teksts;
+		
+		private EntitySet<grad_tekst> _grad_teksts;
+		
+		private EntitySet<smjer_tekst> _smjer_teksts;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1080,6 +2002,11 @@ namespace Where2Study.Models
 		
 		public jezik()
 		{
+			this._sveuciliste_teksts = new EntitySet<sveuciliste_tekst>(new Action<sveuciliste_tekst>(this.attach_sveuciliste_teksts), new Action<sveuciliste_tekst>(this.detach_sveuciliste_teksts));
+			this._drzava_teksts = new EntitySet<drzava_tekst>(new Action<drzava_tekst>(this.attach_drzava_teksts), new Action<drzava_tekst>(this.detach_drzava_teksts));
+			this._fakultet_teksts = new EntitySet<fakultet_tekst>(new Action<fakultet_tekst>(this.attach_fakultet_teksts), new Action<fakultet_tekst>(this.detach_fakultet_teksts));
+			this._grad_teksts = new EntitySet<grad_tekst>(new Action<grad_tekst>(this.attach_grad_teksts), new Action<grad_tekst>(this.detach_grad_teksts));
+			this._smjer_teksts = new EntitySet<smjer_tekst>(new Action<smjer_tekst>(this.attach_smjer_teksts), new Action<smjer_tekst>(this.detach_smjer_teksts));
 			OnCreated();
 		}
 		
@@ -1143,6 +2070,71 @@ namespace Where2Study.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="jezik_sveuciliste_tekst", Storage="_sveuciliste_teksts", ThisKey="id", OtherKey="id_jezik")]
+		public EntitySet<sveuciliste_tekst> sveuciliste_teksts
+		{
+			get
+			{
+				return this._sveuciliste_teksts;
+			}
+			set
+			{
+				this._sveuciliste_teksts.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="jezik_drzava_tekst", Storage="_drzava_teksts", ThisKey="id", OtherKey="id_jezik")]
+		public EntitySet<drzava_tekst> drzava_teksts
+		{
+			get
+			{
+				return this._drzava_teksts;
+			}
+			set
+			{
+				this._drzava_teksts.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="jezik_fakultet_tekst", Storage="_fakultet_teksts", ThisKey="id", OtherKey="id_jezik")]
+		public EntitySet<fakultet_tekst> fakultet_teksts
+		{
+			get
+			{
+				return this._fakultet_teksts;
+			}
+			set
+			{
+				this._fakultet_teksts.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="jezik_grad_tekst", Storage="_grad_teksts", ThisKey="id", OtherKey="id_jezik")]
+		public EntitySet<grad_tekst> grad_teksts
+		{
+			get
+			{
+				return this._grad_teksts;
+			}
+			set
+			{
+				this._grad_teksts.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="jezik_smjer_tekst", Storage="_smjer_teksts", ThisKey="id", OtherKey="id_jezik")]
+		public EntitySet<smjer_tekst> smjer_teksts
+		{
+			get
+			{
+				return this._smjer_teksts;
+			}
+			set
+			{
+				this._smjer_teksts.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1161,6 +2153,66 @@ namespace Where2Study.Models
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_sveuciliste_teksts(sveuciliste_tekst entity)
+		{
+			this.SendPropertyChanging();
+			entity.jezik = this;
+		}
+		
+		private void detach_sveuciliste_teksts(sveuciliste_tekst entity)
+		{
+			this.SendPropertyChanging();
+			entity.jezik = null;
+		}
+		
+		private void attach_drzava_teksts(drzava_tekst entity)
+		{
+			this.SendPropertyChanging();
+			entity.jezik = this;
+		}
+		
+		private void detach_drzava_teksts(drzava_tekst entity)
+		{
+			this.SendPropertyChanging();
+			entity.jezik = null;
+		}
+		
+		private void attach_fakultet_teksts(fakultet_tekst entity)
+		{
+			this.SendPropertyChanging();
+			entity.jezik = this;
+		}
+		
+		private void detach_fakultet_teksts(fakultet_tekst entity)
+		{
+			this.SendPropertyChanging();
+			entity.jezik = null;
+		}
+		
+		private void attach_grad_teksts(grad_tekst entity)
+		{
+			this.SendPropertyChanging();
+			entity.jezik = this;
+		}
+		
+		private void detach_grad_teksts(grad_tekst entity)
+		{
+			this.SendPropertyChanging();
+			entity.jezik = null;
+		}
+		
+		private void attach_smjer_teksts(smjer_tekst entity)
+		{
+			this.SendPropertyChanging();
+			entity.jezik = this;
+		}
+		
+		private void detach_smjer_teksts(smjer_tekst entity)
+		{
+			this.SendPropertyChanging();
+			entity.jezik = null;
 		}
 	}
 	
@@ -1563,7 +2615,9 @@ namespace Where2Study.Models
 		
 		private System.Nullable<int> _id_fakultet;
 		
-		private System.Nullable<int> _id_stupanj;
+		private EntitySet<smjer_tekst> _smjer_teksts;
+		
+		private EntitySet<stupanj_smjer> _stupanj_smjers;
 		
 		private EntityRef<fakultet> _fakultet;
 		
@@ -1575,12 +2629,12 @@ namespace Where2Study.Models
     partial void OnidChanged();
     partial void Onid_fakultetChanging(System.Nullable<int> value);
     partial void Onid_fakultetChanged();
-    partial void Onid_stupanjChanging(System.Nullable<int> value);
-    partial void Onid_stupanjChanged();
     #endregion
 		
 		public smjer()
 		{
+			this._smjer_teksts = new EntitySet<smjer_tekst>(new Action<smjer_tekst>(this.attach_smjer_teksts), new Action<smjer_tekst>(this.detach_smjer_teksts));
+			this._stupanj_smjers = new EntitySet<stupanj_smjer>(new Action<stupanj_smjer>(this.attach_stupanj_smjers), new Action<stupanj_smjer>(this.detach_stupanj_smjers));
 			this._fakultet = default(EntityRef<fakultet>);
 			OnCreated();
 		}
@@ -1629,23 +2683,29 @@ namespace Where2Study.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_stupanj", DbType="Int")]
-		public System.Nullable<int> id_stupanj
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="smjer_smjer_tekst", Storage="_smjer_teksts", ThisKey="id", OtherKey="id_smjer")]
+		public EntitySet<smjer_tekst> smjer_teksts
 		{
 			get
 			{
-				return this._id_stupanj;
+				return this._smjer_teksts;
 			}
 			set
 			{
-				if ((this._id_stupanj != value))
-				{
-					this.Onid_stupanjChanging(value);
-					this.SendPropertyChanging();
-					this._id_stupanj = value;
-					this.SendPropertyChanged("id_stupanj");
-					this.Onid_stupanjChanged();
-				}
+				this._smjer_teksts.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="smjer_stupanj_smjer", Storage="_stupanj_smjers", ThisKey="id", OtherKey="id_smjer")]
+		public EntitySet<stupanj_smjer> stupanj_smjers
+		{
+			get
+			{
+				return this._stupanj_smjers;
+			}
+			set
+			{
+				this._stupanj_smjers.Assign(value);
 			}
 		}
 		
@@ -1702,6 +2762,30 @@ namespace Where2Study.Models
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_smjer_teksts(smjer_tekst entity)
+		{
+			this.SendPropertyChanging();
+			entity.smjer = this;
+		}
+		
+		private void detach_smjer_teksts(smjer_tekst entity)
+		{
+			this.SendPropertyChanging();
+			entity.smjer = null;
+		}
+		
+		private void attach_stupanj_smjers(stupanj_smjer entity)
+		{
+			this.SendPropertyChanging();
+			entity.smjer = this;
+		}
+		
+		private void detach_stupanj_smjers(stupanj_smjer entity)
+		{
+			this.SendPropertyChanging();
+			entity.smjer = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.smjer_predmet")]
@@ -1750,8 +2834,10 @@ namespace Where2Study.Models
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.smjer_tekst")]
-	public partial class smjer_tekst
+	public partial class smjer_tekst : INotifyPropertyChanging, INotifyPropertyChanged
 	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private System.Nullable<int> _id_smjer;
 		
@@ -1759,8 +2845,31 @@ namespace Where2Study.Models
 		
 		private string _tekst;
 		
+		private int _id;
+		
+		private EntityRef<smjer> _smjer;
+		
+		private EntityRef<jezik> _jezik;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    //partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_smjerChanging(System.Nullable<int> value);
+    partial void Onid_smjerChanged();
+    partial void Onid_jezikChanging(System.Nullable<int> value);
+    partial void Onid_jezikChanged();
+    partial void OntekstChanging(string value);
+    partial void OntekstChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    #endregion
+		
 		public smjer_tekst()
 		{
+			this._smjer = default(EntityRef<smjer>);
+			this._jezik = default(EntityRef<jezik>);
+			OnCreated();
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_smjer", DbType="Int")]
@@ -1774,7 +2883,15 @@ namespace Where2Study.Models
 			{
 				if ((this._id_smjer != value))
 				{
+					if (this._smjer.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_smjerChanging(value);
+					this.SendPropertyChanging();
 					this._id_smjer = value;
+					this.SendPropertyChanged("id_smjer");
+					this.Onid_smjerChanged();
 				}
 			}
 		}
@@ -1790,7 +2907,15 @@ namespace Where2Study.Models
 			{
 				if ((this._id_jezik != value))
 				{
+					if (this._jezik.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_jezikChanging(value);
+					this.SendPropertyChanging();
 					this._id_jezik = value;
+					this.SendPropertyChanged("id_jezik");
+					this.Onid_jezikChanged();
 				}
 			}
 		}
@@ -1806,8 +2931,120 @@ namespace Where2Study.Models
 			{
 				if ((this._tekst != value))
 				{
+					this.OntekstChanging(value);
+					this.SendPropertyChanging();
 					this._tekst = value;
+					this.SendPropertyChanged("tekst");
+					this.OntekstChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="smjer_smjer_tekst", Storage="_smjer", ThisKey="id_smjer", OtherKey="id", IsForeignKey=true, DeleteRule="SET NULL")]
+		public smjer smjer
+		{
+			get
+			{
+				return this._smjer.Entity;
+			}
+			set
+			{
+				smjer previousValue = this._smjer.Entity;
+				if (((previousValue != value) 
+							|| (this._smjer.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._smjer.Entity = null;
+						previousValue.smjer_teksts.Remove(this);
+					}
+					this._smjer.Entity = value;
+					if ((value != null))
+					{
+						value.smjer_teksts.Add(this);
+						this._id_smjer = value.id;
+					}
+					else
+					{
+						this._id_smjer = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("smjer");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="jezik_smjer_tekst", Storage="_jezik", ThisKey="id_jezik", OtherKey="id", IsForeignKey=true, DeleteRule="SET NULL")]
+		public jezik jezik
+		{
+			get
+			{
+				return this._jezik.Entity;
+			}
+			set
+			{
+				jezik previousValue = this._jezik.Entity;
+				if (((previousValue != value) 
+							|| (this._jezik.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._jezik.Entity = null;
+						previousValue.smjer_teksts.Remove(this);
+					}
+					this._jezik.Entity = value;
+					if ((value != null))
+					{
+						value.smjer_teksts.Add(this);
+						this._id_jezik = value.id;
+					}
+					else
+					{
+						this._id_jezik = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("jezik");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -1822,6 +3059,8 @@ namespace Where2Study.Models
 		
 		private System.Nullable<byte> _trajanje;
 		
+		private EntitySet<stupanj_smjer> _stupanj_smjers;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1834,6 +3073,7 @@ namespace Where2Study.Models
 		
 		public stupanj()
 		{
+			this._stupanj_smjers = new EntitySet<stupanj_smjer>(new Action<stupanj_smjer>(this.attach_stupanj_smjers), new Action<stupanj_smjer>(this.detach_stupanj_smjers));
 			OnCreated();
 		}
 		
@@ -1877,6 +3117,19 @@ namespace Where2Study.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="stupanj_stupanj_smjer", Storage="_stupanj_smjers", ThisKey="id", OtherKey="id_stupanj")]
+		public EntitySet<stupanj_smjer> stupanj_smjers
+		{
+			get
+			{
+				return this._stupanj_smjers;
+			}
+			set
+			{
+				this._stupanj_smjers.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1895,6 +3148,528 @@ namespace Where2Study.Models
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_stupanj_smjers(stupanj_smjer entity)
+		{
+			this.SendPropertyChanging();
+			entity.stupanj = this;
+		}
+		
+		private void detach_stupanj_smjers(stupanj_smjer entity)
+		{
+			this.SendPropertyChanging();
+			entity.stupanj = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.stupanj_smjer")]
+	public partial class stupanj_smjer : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private System.Nullable<int> _id_stupanj;
+		
+		private System.Nullable<int> _id_smjer;
+		
+		private EntityRef<smjer> _smjer;
+		
+		private EntityRef<stupanj> _stupanj;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void Onid_stupanjChanging(System.Nullable<int> value);
+    partial void Onid_stupanjChanged();
+    partial void Onid_smjerChanging(System.Nullable<int> value);
+    partial void Onid_smjerChanged();
+    #endregion
+		
+		public stupanj_smjer()
+		{
+			this._smjer = default(EntityRef<smjer>);
+			this._stupanj = default(EntityRef<stupanj>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_stupanj", DbType="Int")]
+		public System.Nullable<int> id_stupanj
+		{
+			get
+			{
+				return this._id_stupanj;
+			}
+			set
+			{
+				if ((this._id_stupanj != value))
+				{
+					if (this._stupanj.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_stupanjChanging(value);
+					this.SendPropertyChanging();
+					this._id_stupanj = value;
+					this.SendPropertyChanged("id_stupanj");
+					this.Onid_stupanjChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_smjer", DbType="Int")]
+		public System.Nullable<int> id_smjer
+		{
+			get
+			{
+				return this._id_smjer;
+			}
+			set
+			{
+				if ((this._id_smjer != value))
+				{
+					if (this._smjer.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_smjerChanging(value);
+					this.SendPropertyChanging();
+					this._id_smjer = value;
+					this.SendPropertyChanged("id_smjer");
+					this.Onid_smjerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="smjer_stupanj_smjer", Storage="_smjer", ThisKey="id_smjer", OtherKey="id", IsForeignKey=true, DeleteRule="SET NULL")]
+		public smjer smjer
+		{
+			get
+			{
+				return this._smjer.Entity;
+			}
+			set
+			{
+				smjer previousValue = this._smjer.Entity;
+				if (((previousValue != value) 
+							|| (this._smjer.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._smjer.Entity = null;
+						previousValue.stupanj_smjers.Remove(this);
+					}
+					this._smjer.Entity = value;
+					if ((value != null))
+					{
+						value.stupanj_smjers.Add(this);
+						this._id_smjer = value.id;
+					}
+					else
+					{
+						this._id_smjer = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("smjer");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="stupanj_stupanj_smjer", Storage="_stupanj", ThisKey="id_stupanj", OtherKey="id", IsForeignKey=true, DeleteRule="SET NULL")]
+		public stupanj stupanj
+		{
+			get
+			{
+				return this._stupanj.Entity;
+			}
+			set
+			{
+				stupanj previousValue = this._stupanj.Entity;
+				if (((previousValue != value) 
+							|| (this._stupanj.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._stupanj.Entity = null;
+						previousValue.stupanj_smjers.Remove(this);
+					}
+					this._stupanj.Entity = value;
+					if ((value != null))
+					{
+						value.stupanj_smjers.Add(this);
+						this._id_stupanj = value.id;
+					}
+					else
+					{
+						this._id_stupanj = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("stupanj");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.stupanj_tekst")]
+	public partial class stupanj_tekst
+	{
+		
+		private System.Nullable<int> _id_stupanj;
+		
+		private System.Nullable<int> _id_jezik;
+		
+		private string _naziv;
+		
+		public stupanj_tekst()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_stupanj", DbType="Int")]
+		public System.Nullable<int> id_stupanj
+		{
+			get
+			{
+				return this._id_stupanj;
+			}
+			set
+			{
+				if ((this._id_stupanj != value))
+				{
+					this._id_stupanj = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_jezik", DbType="Int")]
+		public System.Nullable<int> id_jezik
+		{
+			get
+			{
+				return this._id_jezik;
+			}
+			set
+			{
+				if ((this._id_jezik != value))
+				{
+					this._id_jezik = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_naziv", DbType="VarChar(MAX)")]
+		public string naziv
+		{
+			get
+			{
+				return this._naziv;
+			}
+			set
+			{
+				if ((this._naziv != value))
+				{
+					this._naziv = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.sveuciliste")]
+	public partial class sveuciliste : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private System.Nullable<int> _id_grad;
+		
+		private string _adresa_sveucilista;
+		
+		private string _broj_telefona;
+		
+		private string _web;
+		
+		private EntitySet<sveuciliste_tekst> _sveuciliste_teksts;
+		
+		private EntitySet<fakultet> _fakultets;
+		
+		private EntityRef<grad> _grad;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void Onid_gradChanging(System.Nullable<int> value);
+    partial void Onid_gradChanged();
+    partial void Onadresa_sveucilistaChanging(string value);
+    partial void Onadresa_sveucilistaChanged();
+    partial void Onbroj_telefonaChanging(string value);
+    partial void Onbroj_telefonaChanged();
+    partial void OnwebChanging(string value);
+    partial void OnwebChanged();
+    #endregion
+		
+		public sveuciliste()
+		{
+			this._sveuciliste_teksts = new EntitySet<sveuciliste_tekst>(new Action<sveuciliste_tekst>(this.attach_sveuciliste_teksts), new Action<sveuciliste_tekst>(this.detach_sveuciliste_teksts));
+			this._fakultets = new EntitySet<fakultet>(new Action<fakultet>(this.attach_fakultets), new Action<fakultet>(this.detach_fakultets));
+			this._grad = default(EntityRef<grad>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_grad", DbType="Int")]
+		public System.Nullable<int> id_grad
+		{
+			get
+			{
+				return this._id_grad;
+			}
+			set
+			{
+				if ((this._id_grad != value))
+				{
+					if (this._grad.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_gradChanging(value);
+					this.SendPropertyChanging();
+					this._id_grad = value;
+					this.SendPropertyChanged("id_grad");
+					this.Onid_gradChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_adresa_sveucilista", DbType="Text", UpdateCheck=UpdateCheck.Never)]
+		public string adresa_sveucilista
+		{
+			get
+			{
+				return this._adresa_sveucilista;
+			}
+			set
+			{
+				if ((this._adresa_sveucilista != value))
+				{
+					this.Onadresa_sveucilistaChanging(value);
+					this.SendPropertyChanging();
+					this._adresa_sveucilista = value;
+					this.SendPropertyChanged("adresa_sveucilista");
+					this.Onadresa_sveucilistaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_broj_telefona", DbType="VarChar(32)")]
+		public string broj_telefona
+		{
+			get
+			{
+				return this._broj_telefona;
+			}
+			set
+			{
+				if ((this._broj_telefona != value))
+				{
+					this.Onbroj_telefonaChanging(value);
+					this.SendPropertyChanging();
+					this._broj_telefona = value;
+					this.SendPropertyChanged("broj_telefona");
+					this.Onbroj_telefonaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_web", DbType="Text", UpdateCheck=UpdateCheck.Never)]
+		public string web
+		{
+			get
+			{
+				return this._web;
+			}
+			set
+			{
+				if ((this._web != value))
+				{
+					this.OnwebChanging(value);
+					this.SendPropertyChanging();
+					this._web = value;
+					this.SendPropertyChanged("web");
+					this.OnwebChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="sveuciliste_sveuciliste_tekst", Storage="_sveuciliste_teksts", ThisKey="id", OtherKey="id_sveuciliste")]
+		public EntitySet<sveuciliste_tekst> sveuciliste_teksts
+		{
+			get
+			{
+				return this._sveuciliste_teksts;
+			}
+			set
+			{
+				this._sveuciliste_teksts.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="sveuciliste_fakultet", Storage="_fakultets", ThisKey="id", OtherKey="id_sveuciliste")]
+		public EntitySet<fakultet> fakultets
+		{
+			get
+			{
+				return this._fakultets;
+			}
+			set
+			{
+				this._fakultets.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="grad_sveuciliste", Storage="_grad", ThisKey="id_grad", OtherKey="id", IsForeignKey=true, DeleteRule="SET NULL")]
+		public grad grad
+		{
+			get
+			{
+				return this._grad.Entity;
+			}
+			set
+			{
+				grad previousValue = this._grad.Entity;
+				if (((previousValue != value) 
+							|| (this._grad.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._grad.Entity = null;
+						previousValue.sveucilistes.Remove(this);
+					}
+					this._grad.Entity = value;
+					if ((value != null))
+					{
+						value.sveucilistes.Add(this);
+						this._id_grad = value.id;
+					}
+					else
+					{
+						this._id_grad = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("grad");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_sveuciliste_teksts(sveuciliste_tekst entity)
+		{
+			this.SendPropertyChanging();
+			entity.sveuciliste = this;
+		}
+		
+		private void detach_sveuciliste_teksts(sveuciliste_tekst entity)
+		{
+			this.SendPropertyChanging();
+			entity.sveuciliste = null;
+		}
+		
+		private void attach_fakultets(fakultet entity)
+		{
+			this.SendPropertyChanging();
+			entity.sveuciliste = this;
+		}
+		
+		private void detach_fakultets(fakultet entity)
+		{
+			this.SendPropertyChanging();
+			entity.sveuciliste = null;
 		}
 	}
 }

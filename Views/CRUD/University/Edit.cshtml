@@ -1,0 +1,62 @@
+﻿@model Where2Study.Models.sveuciliste
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>sveuciliste</legend>
+
+        @Html.HiddenFor(model => model.id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.id_grad)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.id_grad)
+            @Html.ValidationMessageFor(model => model.id_grad)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.adresa_sveucilista)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.adresa_sveucilista)
+            @Html.ValidationMessageFor(model => model.adresa_sveucilista)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.broj_telefona)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.broj_telefona)
+            @Html.ValidationMessageFor(model => model.broj_telefona)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.web)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.web)
+            @Html.ValidationMessageFor(model => model.web)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@* @section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+} *@

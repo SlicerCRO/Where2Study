@@ -40,6 +40,8 @@ namespace Where2Study
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+           
+            AuthConfig.RegisterAuth();
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Where2Study.Controllers
 
         public ActionResult Index()
         {
-            var dataContext = new w2sDBDataContext();
+            var dataContext = new w2sDataContext();
             var language = from c in dataContext.jeziks
                          select c;
             return View(language);

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Where2Study.Models.University>
+﻿@model Where2Study.Models.Faculty
 
 @{
     ViewBag.Title = "Details";
@@ -6,9 +6,11 @@
 
 <h2> @Html.DisplayNameFor(model => model.Title)</h2>
 
+<div class="col-md-6">
+
 <fieldset>
-    @foreach (var item in Model) {
-    <legend>@Html.DisplayFor(modelItem => item.Title)</legend>
+    @Html.DisplayFor(model => model.University)
+    <legend>@Html.DisplayFor(model => model.Title)</legend>
     
     @* <div class="display-label">id_fakultet</div>
     <div class="display-field">
@@ -20,25 +22,75 @@
         @Html.DisplayFor(model => model.id_jezik)
     </div> *@
 
-    <div class="display-label">@Html.DisplayFor(modelItem => item.Description)</div>
-    <div class="display-field">
-        @Html.DisplayFor(modelItem => item.Photo) <br />
-        @Html.DisplayNameFor(model => model.Address):
-        @Html.DisplayFor(modelItem => item.Address)<br />
-        @Html.DisplayNameFor(model => model.Phone):
-        @Html.DisplayFor(modelItem => item.Phone)<br />
-        @Html.DisplayNameFor(model => model.WebSite):
-        @Html.DisplayFor(modelItem => item.WebSite)<br />
-        @Html.DisplayNameFor(model => model.City):
-        @Html.DisplayFor(modelItem => item.City)<br />
-        @Html.DisplayNameFor(model => model.Country):
-        @Html.DisplayFor(modelItem => item.Country)<br />
-        @*@Html.DisplayNameFor(model => model.Continent):
-        @Html.DisplayFor(modelItem => item.Continent)<br />*@
-    </div>
-    }
+    <div><img src="/content/Images/Slike/@Html.DisplayFor(model => model.Photo)" alt="model.Title" style="width:460px;height:auto"></div>
+   @*<div class="text-box.multi-line">@Html.TextAreaFor(modelItem => item.Description, new { @readonly = true })</div>*@
+     <pre id="preFormating">@Html.DisplayFor(model => model.Description)</pre>
+   
+        
+        
+    @*   //Where2Study.Models.DegreeSpecialization dsm = new Where2Study.Models.DegreeSpecialization();
+       //var model1= dsm.DegSpecDetails(item.Title);
+              //  @Html.Partial("DegSpecDetails", Model.partialModel)*@
+               
+  @*<div>
+       
+   @Html.DisplayNameFor(model => dsm.Degree):
+   </div>
+     
+   foreach (var it in model1) {
+            <div class="display-field">
+                @Html.DisplayFor(model1.Degree): 
+                @Html.DisplayFor(it.Specialization)<br />
+            </div>
+    }*@                     
+    
+    
 </fieldset>
+</div>
+<div class="col-md-6">
+     <div class="display-field">
+         <h4>
+             <br />
+        @Html.DisplayNameFor(model => model.WebSite):
+        <a href="http:/@Html.DisplayFor(model => model.WebSite)">@Html.DisplayFor(model => model.WebSite)</a><br /><br />
+        @Html.DisplayNameFor(model => model.Phone):
+        @Html.DisplayFor(model => model.Phone)<br /><br />
+        @Html.DisplayNameFor(model => model.Address):
+        @Html.DisplayFor(model => model.Address)<br /><br />
+        @Html.DisplayNameFor(model => model.City):
+        @Html.DisplayFor(model => model.City)<br /><br />
+        @Html.DisplayNameFor(model => model.Country):
+        @Html.DisplayFor(model => model.Country)<br />    <br />   
+             </h4>
+    </div>
+
+@if (Model.Specializations != null){
+
+<h2>Smjerovi</h2>
+
+    <h4>Stručni:</h4>
+foreach (var item in Model.Specializations) {
+        if (item.Id == 1){<div>- @Html.DisplayFor(modelItem => item.Specialization) (@Html.DisplayFor(modelItem => item.Duration) sem.)</div>}
+}
+    <h4>Preddiplomski:</h4>
+foreach (var item in Model.Specializations) {
+        if (item.Id == 2){<div>- @Html.DisplayFor(modelItem => item.Specialization) (@Html.DisplayFor(modelItem => item.Duration) sem.)</div>}
+}
+    <h4>Diplomski:</h4>
+foreach (var item in Model.Specializations) {
+        if (item.Id == 3){<div>- @Html.DisplayFor(modelItem => item.Specialization) (@Html.DisplayFor(modelItem => item.Duration) sem.)</div>}
+}
+    <h4>Poslijediplomski specijalistički:</h4>
+foreach (var item in Model.Specializations) {
+        if (item.Id == 4){<div>- @Html.DisplayFor(modelItem => item.Specialization) (@Html.DisplayFor(modelItem => item.Duration) sem.)</div>}
+}
+    <h4>Poslijediplomski doktorski:</h4>
+foreach (var item in Model.Specializations) {
+        if (item.Id == 5){<div>- @Html.DisplayFor(modelItem => item.Specialization) (@Html.DisplayFor(modelItem => item.Duration) sem.)</div>}        
+}
+}
+<br />
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+            </div>

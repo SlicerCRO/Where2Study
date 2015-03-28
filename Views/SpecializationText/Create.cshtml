@@ -1,0 +1,52 @@
+﻿@model Where2Study.Models.smjer_tekst
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>smjer_tekst</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.id_smjer)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.id_smjer)
+            @Html.ValidationMessageFor(model => model.id_smjer)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.id_jezik)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.id_jezik)
+            @Html.ValidationMessageFor(model => model.id_jezik)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.tekst)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.tekst)
+            @Html.ValidationMessageFor(model => model.tekst)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

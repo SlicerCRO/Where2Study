@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Where2Study.Models.fakultet_tekst>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IsValid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_fakultet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_jezik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.naziv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.opis)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsValid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_fakultet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_jezik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.naziv)
+        </td>
+        <td style="max-width:30em;max-height:2em; overflow:scroll;word-wrap: break-word;">
+            @Html.DisplayFor(modelItem => item.opis)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

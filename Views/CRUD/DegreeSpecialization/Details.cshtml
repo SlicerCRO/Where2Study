@@ -1,0 +1,29 @@
+﻿@model Where2Study.Models.stupanj_smjer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>stupanj_smjer</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.id_stupanj)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.id_stupanj)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.id_smjer)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.id_smjer)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
